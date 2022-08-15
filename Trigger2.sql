@@ -15,7 +15,7 @@ END IF;
 
 -- Zablokowanie dodania indeksu w kategorii "Materiały", jeśli w indeksie nie będzie uzupełniony dostawca
 IF
-	NEW.klasyfikacjatowaru = 3 and (select count(*) from g.gm_indeksy_dostawcy where id_materialu = NEW.id_indeksu) = 0
+	NEW.klasyfikacjatowaru = 3 and (select count(*) from TABELA where id_materialu = NEW.id_indeksu) = 0
 	THEN
  	RAISE EXCEPTION 'Brak dostawcy.';
 END IF;
